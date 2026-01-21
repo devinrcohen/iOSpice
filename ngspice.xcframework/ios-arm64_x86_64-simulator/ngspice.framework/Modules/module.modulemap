@@ -1,0 +1,4 @@
+framework module ngspice {
+  header "sharedspice.h"
+  export *
+}
