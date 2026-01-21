@@ -6,8 +6,40 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		8CF7B5682F213BA100750DB7 /* NgspiceScripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF7B5672F213BA100750DB7 /* NgspiceScripts.swift */; };
+		8CF7B5692F213BA100750DB7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF7B5622F213BA100750DB7 /* ContentView.swift */; };
+		8CF7B56A2F213BA100750DB7 /* engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8CF7B5642F213BA100750DB7 /* engine.cpp */; };
+		8CF7B56B2F213BA100750DB7 /* iOSpiceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF7B5662F213BA100750DB7 /* iOSpiceApp.swift */; };
+		8CF7B5702F213C6A00750DB7 /* ngspice.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CF7B56D2F213BEC00750DB7 /* ngspice.xcframework */; };
+		8CF7B5712F213C6A00750DB7 /* ngspice.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8CF7B56D2F213BEC00750DB7 /* ngspice.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8CF7B5722F213C6A00750DB7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8CF7B5712F213C6A00750DB7 /* ngspice.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		8CF7B5542F213B4500750DB7 /* iOSpice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSpice.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CF7B5622F213BA100750DB7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8CF7B5632F213BA100750DB7 /* engine.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = engine.hpp; sourceTree = "<group>"; };
+		8CF7B5642F213BA100750DB7 /* engine.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = engine.cpp; sourceTree = "<group>"; };
+		8CF7B5652F213BA100750DB7 /* iOSpice-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSpice-Bridging-Header.h"; sourceTree = "<group>"; };
+		8CF7B5662F213BA100750DB7 /* iOSpiceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSpiceApp.swift; sourceTree = "<group>"; };
+		8CF7B5672F213BA100750DB7 /* NgspiceScripts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NgspiceScripts.swift; sourceTree = "<group>"; };
+		8CF7B56C2F213BAB00750DB7 /* iOSpice-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSpice-Bridging-Header.h"; sourceTree = "<group>"; };
+		8CF7B56D2F213BEC00750DB7 /* ngspice.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = ngspice.xcframework; sourceTree = "<group>"; };
+		8CF7B56F2F213C4600750DB7 /* sharedspice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sharedspice.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -23,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CF7B5702F213C6A00750DB7 /* ngspice.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -32,6 +65,14 @@
 		8CF7B54B2F213B4500750DB7 = {
 			isa = PBXGroup;
 			children = (
+				8CF7B56F2F213C4600750DB7 /* sharedspice.h */,
+				8CF7B56D2F213BEC00750DB7 /* ngspice.xcframework */,
+				8CF7B5622F213BA100750DB7 /* ContentView.swift */,
+				8CF7B5632F213BA100750DB7 /* engine.hpp */,
+				8CF7B5642F213BA100750DB7 /* engine.cpp */,
+				8CF7B5652F213BA100750DB7 /* iOSpice-Bridging-Header.h */,
+				8CF7B5662F213BA100750DB7 /* iOSpiceApp.swift */,
+				8CF7B5672F213BA100750DB7 /* NgspiceScripts.swift */,
 				8CF7B5562F213B4500750DB7 /* iOSpice */,
 				8CF7B5552F213B4500750DB7 /* Products */,
 			);
@@ -41,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				8CF7B5542F213B4500750DB7 /* iOSpice.app */,
+				8CF7B56C2F213BAB00750DB7 /* iOSpice-Bridging-Header.h */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -55,6 +97,7 @@
 				8CF7B5502F213B4500750DB7 /* Sources */,
 				8CF7B5512F213B4500750DB7 /* Frameworks */,
 				8CF7B5522F213B4500750DB7 /* Resources */,
+				8CF7B5722F213C6A00750DB7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -82,6 +125,7 @@
 				TargetAttributes = {
 					8CF7B5532F213B4500750DB7 = {
 						CreatedOnToolsVersion = 26.2;
+						LastSwiftMigration = 2620;
 					};
 				};
 			};
@@ -119,6 +163,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CF7B5682F213BA100750DB7 /* NgspiceScripts.swift in Sources */,
+				8CF7B5692F213BA100750DB7 /* ContentView.swift in Sources */,
+				8CF7B56A2F213BA100750DB7 /* engine.cpp in Sources */,
+				8CF7B56B2F213BA100750DB7 /* iOSpiceApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +233,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OBJC_INTEROP_MODE = objcxx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -242,6 +291,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_INTEROP_MODE = objcxx;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -251,6 +301,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZCLDK7V8F2;
@@ -272,6 +323,8 @@
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "iOSpice-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -283,6 +336,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZCLDK7V8F2;
@@ -304,6 +358,7 @@
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "iOSpice-Bridging-Header.h";
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
