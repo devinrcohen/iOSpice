@@ -14,6 +14,8 @@ enum class callback {
     CHAR, STAT, CONTROLLED_EXIT, DATA, INIT_DATA, BG
 };
 
+
+
 // callbacks
 extern "C" int sendChar(char* msg, int, void*);
 extern "C" int sendStat(char* msg, int, void*);
@@ -98,6 +100,42 @@ std::string SpiceEngine::getOutput() {
     std::string out = takeOutputSnapshot();
     clearOutput();
     return out;
+}
+
+size_t SpiceEngine::getVector(const char *name, Component comp /*::REAL or ::IMAG*/,
+                              double *out, size_t outCap) {
+    pvector_info vecInfo = ngGet_Vec_Info(const_cast<char*>(name));
+    if (!vecInfo) return 0; // no data found for vector name
+    const size_t len = static_cast<size_t>(vecInfo->v_length);
+    if (!out || outCap == 0) return len; // return length to swift for subsequent calls
+    
+    const size_t n = std::min(len, outCap);
+    
+    if(comp == Component::REAL) {
+        // Prefer real data if present (OP transient real vectors)
+        if (vecInfo->v_realdata) {
+            for (size_t i = 0; i < n; ++i) out[i] = vecInfo->v_realdata[i];
+            return n;
+        }
+        if (vecInfo->v_compdata) {
+            // complex data exists, but outer if is asking for REAL
+            for (size_t i = 0; i < n; ++i) out[i] = vecInfo->v_compdata[i].cx_real;
+            return n;
+        }
+        return 0; // user requested REAL data, but doesn't exist
+    } else { // IMAG
+        // check if complex exists, prefer it
+        if (vecInfo->v_compdata) {
+            for (size_t i = 0; i < n; ++i) out[i] = vecInfo->v_compdata[i].cx_imag;
+            return n;
+        }
+        // vector is purely real even though user requested IMAG
+        if (vecInfo->v_realdata) {
+            for (size_t i = 0; i < n; ++i) out[i] = 0.0;
+            return n;
+        }
+        return 0;
+    }
 }
 
 void SpiceEngine::say_hello() {
@@ -215,7 +253,6 @@ extern "C" int sendData(pvecvaluesall vec, int num_structs, int, void*) {
     const int n = vec->veccount;
     out = "veccount: " + std::to_string(n);
     out += "\nnum_cstructs: " + std::to_string(num_structs);
-    
     if (!g_storeComplex) {
         g_samples.reserve(g_samples.size() + n);
         for (int i=0; i < n; ++i) {
